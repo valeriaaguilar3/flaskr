@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve myproject
+After=network.target
+
+[Service]
+User=vagrant
+Group=vagrant
+WorkingDirectory=/app
+Environment="FLASK_APP=/app/flaskr"
+ExecStart=/app/flaskr/.venv/bin/flask run 
+
+[Install]
+WantedBy=multi-user.target
